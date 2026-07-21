@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import cors from 'cors';
-import fs from 'fs'; 
+import fs from 'fs';
 import userRoutes from './routes/userRoutes';
 import layananRoutes from './routes/layananRoutes';
 import pemesananRoutes from './routes/pemesananRoutes';
@@ -32,7 +32,7 @@ app.use('/api/revisi', revisiRoutes);
 app.use('/api/notifikasi', notifikasiRoutes);
 app.use('/api/chatbot', chatbotRoutes);
 
-// // upload
+// // uploadddd
 // app.use("/uploads", express.static("uploads"));
 // app.use("/uploads", express.static("public/uploads"));
 // app.use("/uploads", express.static(path.join(__dirname, "../uploads")));

@@ -1,0 +1,1 @@
+{"version":3,"file":"jadwalPemesanan.d.ts","sourceRoot":"","sources":["../../src/models/jadwalPemesanan.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,eAAe;IAC9B,EAAE,CAAC,EAAE,MAAM,CAAC;IACZ,YAAY,CAAC,EAAE,MAAM,CAAC;IACtB,aAAa,CAAC,EAAE,IAAI,CAAC;IACrB,eAAe,CAAC,EAAE,MAAM,GAAG,IAAI,CAAC;IAChC,MAAM,CAAC,EAAE,MAAM,CAAC;CACjB"}

@@ -18,6 +18,10 @@ if (!GOOGLE_CLIENT_ID) {
 }
 
 const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+const isValidEmail = (email: string): boolean => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
 
 // ================= Register =================
 export const register = async (req: Request, res: Response) => {
@@ -25,6 +29,10 @@ export const register = async (req: Request, res: Response) => {
 
   if (!nama || !email || !password) {
     return res.status(400).json({ message: 'Semua field wajib diisi' });
+  }
+
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ message: 'Format email tidak valid' });
   }
 
   let finalRole: 'klien' | 'arsitek' = 'klien';
@@ -75,10 +83,13 @@ export const register = async (req: Request, res: Response) => {
 // ================= Login =================
 export const login = async (req: Request, res: Response) => {
   const { email, password, allowedRoles } = req.body;
-  // allowedRoles dikirim dari frontend: ["klien"] untuk halaman klien
 
   if (!email || !password) {
     return res.status(400).json({ message: 'Email dan password wajib diisi' });
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ message: 'Format email tidak valid' });
   }
 
   try {

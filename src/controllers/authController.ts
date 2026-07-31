@@ -163,7 +163,7 @@ export const getProfile = async (req: AuthRequest, res: Response) => {
       email: user.email,
       phone: user.phone || '',
       alamat: user.alamat || '',
-      google_maps:user.google_maps || '',
+      // google_maps:user.google_maps || '',
       foto: user.foto || '',
       role: user.role,
     });
@@ -180,9 +180,9 @@ export const updateProfile = async (req: AuthRequest, res: Response) => {
       return res.status(401).json({ message: 'Unauthorized' });
     }
 
-    const { nama, email, phone, alamat, google_maps } = req.body;
+    const { nama, email, phone, alamat } = req.body;
 
-    await updateUserProfile(userLogin.id, nama, email, phone, alamat, google_maps);
+    await updateUserProfile(userLogin.id, nama, email, phone, alamat);
     insertNotifikasi(
       userLogin.id,
       'Profil Diperbarui',

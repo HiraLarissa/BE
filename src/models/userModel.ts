@@ -77,16 +77,16 @@ export const updateUserProfile = (
   email: string,
   phone: string,
   alamat: string,
-  google_maps: string
+  // google_maps: string
 ): Promise<any> => {
   return new Promise((resolve, reject) => {
     const sql = `
       UPDATE users 
-      SET nama = ?, email = ?, phone = ?, alamat = ?, google_maps = ?
+      SET nama = ?, email = ?, phone = ?, alamat = ?
       WHERE id = ?
     `;
 
-    db.query(sql, [nama, email, phone, alamat, google_maps, id], (err, result) => {
+    db.query(sql, [nama, email, phone, alamat, id], (err, result) => {
       if (err) return reject(err);
       resolve(result);
     });
